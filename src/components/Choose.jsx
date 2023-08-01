@@ -13,8 +13,7 @@ function Choose() {
             </h2>
             <p className="w-[50%] font-bold">
               Vinmike have a confirmed wealth of experience.
-            </p>
-          </div>
+            </p>``````          </div>
         </div>
         <div className=" border-2 border-2-gray p-2 w-[20%] h-[50vh]  rounded-md shadow">
           <div className="translate-y-32 translate-x-20">
