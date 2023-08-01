@@ -1,6 +1,6 @@
 function Nav(){
     return(
-        <div className=" flex justify-between items-center capitalize fixed  top-0 w-[100%] bg-white z-40 ">
+        <div className=" flex justify-between items-center capitalize sticky  top-0 w-[100%] bg-white z-40 ">
           <div className="">
           <h1 className="font-bold text-2xl">Logo</h1>
           </div>
