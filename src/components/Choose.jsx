@@ -42,7 +42,7 @@ function Choose() {
               Lisenced And Insured
             </h2>
             <p className=" font-bold">
-              Vinmike are certified and have insurance covers.
+              Vinmike are certified and have <br/>insurance covers.
             </p>
           </div>
           </div>

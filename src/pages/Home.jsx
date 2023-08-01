@@ -5,6 +5,7 @@ import Choose from "../components/Choose"
 import Heros from "../components/Heros"
 import More from "../components/More"
 import Testimonials from "../components/Testimonials"
+import Footer from "../components/Footer"
 
 function Home(){
     return(
@@ -16,6 +17,7 @@ function Home(){
 <Heros/>
 <More/>
 <Testimonials/>
+<Footer/>
         </div>
     )
 }
