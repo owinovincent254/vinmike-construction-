@@ -1,8 +1,5 @@
 
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../firebase";
-import { Link } from "react-router-dom"
-
 import { Link, useNavigate } from "react-router-dom"
 import Loader from "./Loader";
 
@@ -21,7 +18,7 @@ function Sign() {
     const auth=getAuth(app)
 
     const navigate = useNavigate()
-    const auth = getAuth()
+    
 
     const [show, setShow] = useState(false);
     const [formData, setFormData] = useState({});
