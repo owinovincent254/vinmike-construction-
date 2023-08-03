@@ -1,29 +1,27 @@
 import { Link, useNavigate } from "react-router-dom"
-import Loader from "./Loader";
 import google from "../assets/images/google.png"
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 import { googleAuth } from "../auth";
 import { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { addDoc, collection } from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
 
-function Sign() {
+function Constructor() {
     const navigate = useNavigate()
     const auth = getAuth()
     const [show, setShow] = useState(false);
     const [formData, setFormData] = useState({});
     const [error, setError] = useState({});
-    const [signUpError, setSignUpError] = useState("");
-    const [loading, setLoading] = useState(false)
+    const [signUpError, setSignUpError] = useState("")
+    const [userId, setUserId] = useState("")
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
     async function handleSignUp(e) {
-        setLoading(true)
         e.preventDefault();
         const errors = {};
         (formData.firstName === undefined || formData.firstName === "") &&
@@ -33,6 +31,8 @@ function Sign() {
             (errors.secondName = "Please Enter Your Second Name");
         (formData.emailAddress === undefined || formData.emailAddress === "") &&
             (errors.emailAddress = "Please Enter  Your Email Address");
+
+
         (formData.Password === undefined || formData.Password === "") &&
             (errors.Password = "Please Enter Your Password");
         (formData.confirmPassword === undefined ||
@@ -40,31 +40,31 @@ function Sign() {
             (errors.confirmPassword = "Please Confirm Your Password");
 
         setError(errors);
-        setLoading(false)
 
         createUserWithEmailAndPassword(auth, formData.emailAddress, formData.Password)
             .then((userCredential) => {
-                setLoading(false)
+
                 const user = userCredential.user;
-
-                console.log(user)
-
-                navigate("/login")
-
+              
             })
             .catch((error) => {
-                setLoading(false)
                 const errorMsg = error.message.substring(22, error.message.length - 2).split("-").join(" ");
                 setSignUpError(errorMsg)
                 console.log(error.message.substring(22, error.message.length - 2))
 
             });
-        await addDoc(collection(db, "client"), formData);
+       
+        onAuthStateChanged(auth, (user) => {
+            console.log(user.uid)
+            setDoc(doc(db, "fundis", user.uid), formData)
+            navigate("/constructors")
+        })
 
 
+        // await ;
+        // await setDoc(doc(db, "fundis", formData, "anotherCollectionName", userId))
 
-
-
+        // await addDoc(collection(db, "engineer"), formData);
 
 
     }
@@ -73,19 +73,18 @@ function Sign() {
     }
 
     return (
-        <div className="">
-            {loading && <Loader />}
-            <div className="">
 
-                <div className="text-center text-[2em]">
-                    <h4>Sign Up</h4>
-                </div>
-                {signUpError !== "" && <p className="text-red-500 text-center capitalize">{signUpError}</p>}
-                <div className=" w-[50%] mx-auto">
+        <div className="">
+            <div className="text-center text-[2em] m-[1em]">
+                <h4>Sign Up</h4>
+            </div>
+            {signUpError !== "" && <p className="text-red-500 text-center capitalize">{signUpError}</p>}
+            <div className="border-2 w-[50%] shadow container mx-auto h-[100%]">
+                <div className=" w-[50%] mx-auto ">
                     {error.secondName && (
-                        <p className="text-black text-center">{error.firstName}</p>
+                        <p className="text-black text-center">{error.secondName}</p>
                     )}
-                    <div className="mt-[em]">
+                    <div className="">
                         <input className="rounded-full shadow  border-gray-300  border-2 w-[100%] p-7 my-[1em] outline-0" name="firstName" type="text" placeholder="First Name" onChange={(e) => handleChange(e)} />
                     </div>
                     {error.secondName && (
@@ -97,9 +96,13 @@ function Sign() {
                     {error.emailAddress && (
                         <p className="text-black text-center">{error.emailAddress}</p>
                     )}
+
                     <div>
-                        <input className="rounded-full shadow border-gray-300  border-2 w-[100%] p-7 my-[1em] outline-0" name="emailAddress" type="email" placeholder="Email" onChange={(e) => handleChange(e)} />
+                        <input className="rounded-full shadow border-gray-300  border-2 w-[100%] p-7 my-[1em] outline-0" name="emailAddress" type="text" placeholder="Email Address" onChange={(e) => handleChange(e)} />
                     </div>
+
+
+
                     {error.Password && (
                         <p className="text-black text-center">{error.Password}</p>
                     )}
@@ -128,7 +131,7 @@ function Sign() {
                         <button className="rounded-md shadow border-gray-300  text-[1.5rem] border-2 text-center py-[1em] px-[1em]  outline-0 bg-orange-500" onClick={(e) => handleSignUp(e)}>Sign Up</button>
                     </div>
                     <div className="text-center">
-                        <Link to="/login"> <p className="text-2xl">Already Have An Account<span className="text-orange-500 "> Login</span></p></Link>
+                        <Link to="/constructors"> <p className="text-2xl">Already Have An Account<span className="text-orange-500 "> Login</span></p></Link>
                     </div>
                     <div className=" flex items-center py-4 my-[1em]">
                         <div className="flex-grow h-px bg-gray-400"></div>
@@ -145,4 +148,4 @@ function Sign() {
         </div>
     )
 }
-export default Sign
+export default Constructor

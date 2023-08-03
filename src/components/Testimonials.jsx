@@ -7,7 +7,7 @@ function Testimonials() {
   return (
     <div className="m-[2em]">
       <div className="flex justify-center font-bold text-5xl">
-        <h2>Certisfied Customers</h2>
+        <h2>Sertisfied Customers</h2>
       </div>
       <div className="flex justify-between gap-5">
       <div className="flex items-center gap-5">
@@ -16,7 +16,7 @@ function Testimonials() {
         </div>
         <div>
           <RiDoubleQuotesL size={40} />
-          <h1 className="text-[2rem]">Vincent Otieno</h1>
+          <h1 className="text-[2rem]"> Dr.Vincent Otieno</h1>
 
           <p className="w-[50%]">
             “Speak of quickest of responses and personalized customer service
@@ -33,7 +33,7 @@ function Testimonials() {
         </div>
         <div>
           <RiDoubleQuotesL size={40} />
-          <h1 className="text-[2rem]">Mr.Moses Muliro</h1>
+          <h1 className="text-[2rem]">Prof.Moses Muliro</h1>
 
           <p className="w-[50%]">
           “Wow! This Is the best app, thank you for good work and having professional vynmyke!! Bravoo!.”

@@ -1,3 +1,4 @@
+ import { Link } from "react-router-dom"
  function About (){
     return(
         <div className="mt-[2em] flex justify-between gap-10">
@@ -15,7 +16,7 @@
 
 </p>
 </div>
-<button className="border-2 bg-white py-5 px-5 rounded-md">More About Us</button>
+<Link to="/about"><button className="border-2 bg-white py-5 px-5 rounded-md">More About Us</button></Link>
 </div>
 
         </div>
