@@ -1,14 +1,13 @@
+import Constructor from "../components/Constructor"
 import Nav from "../components/Nav"
 import Footer from "../components/Footer"
-import ClientLogin from "../components/ClientLogin"
-function Signin() {
+function ConstructorSignup() {
     return (
         <div>
             <Nav />
-            <ClientLogin />
+            <Constructor />
             <Footer />
-
         </div>
     )
 }
-export default Signin
+export default ConstructorSignup

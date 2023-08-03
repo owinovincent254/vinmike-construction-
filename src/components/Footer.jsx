@@ -8,7 +8,7 @@ function Footer() {
     <div className="">
       <div className=" mt-[2em]  bg-orange-500 w-[100% h-[50%]]">
         <div className=" container mx-auto flex justify-center gap-5 flex-1 itens-start mb-5">
-          <h4 className="text-[1rem] font-bold  flex-1 mt-[2em]">
+          <h4 className="text-[2rem] font-bold  flex-1 mt-[2em]">
             THE SITE OF YOUR CHOICE
           </h4>
           <img  src={facebook} alt="facebook image" className="w-[3%] mt-[2em]" />

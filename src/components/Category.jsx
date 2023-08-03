@@ -8,9 +8,9 @@ function Category (){
             <h3 className="m-[2em] text-[1rem]">Please Specify Weather You Want To Find A Technician Or Join As A Technician </h3>
             </div>
             <div className="flex justify-center gap-5">
-            <Link to="/sign"><button className="rounded-md py-4 px-10 border-2 font-bold bg-orange-500">Find A Technician</button></Link>
+            <Link to="/constructor"><button className="rounded-md py-4 px-10 border-2 font-bold bg-orange-500">Find A Technician</button></Link>
                 <p className="mt-[1em] text-[1rem] font-bold">Or</p>
-                <Link to="/sign"> <button className="rounded-md py-4 px-8 border-2 font-bold bg-orange-500">Join As A Technician</button></Link>
+                <Link to="/sign-up"> <button className="rounded-md py-4 px-8 border-2 font-bold bg-orange-500">Join As A Technician</button></Link>
             </div>
         </div>
     )
