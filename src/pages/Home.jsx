@@ -7,6 +7,7 @@ import More from "../components/More";
 import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer"
 
+import Footer from "../components/Footer";
 function Home() {
   return (
     <div>
@@ -17,7 +18,11 @@ function Home() {
       <Heros />
       <More />
       <Testimonials />
+
+      <Footer/>
+
       <Footer />
+
     </div>
   );
 

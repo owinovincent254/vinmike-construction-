@@ -6,11 +6,11 @@ function AboutUsPage() {
         About Us:VynMyke Construction Company
         </h2>
       </div>
-      <div>
+      <div className="bg-black-500 " >
       <h1 className="text-3xl text-center font-bold text-[#FF5318] p-1">
         About:VynMyke Construction Company
       </h1>
-      <p className="text-center p-2">
+      <p className="text-center p-9">
         Welcome to VynMyke Construction Company! With a passion for <br />
         excellence and a commitment to delivering top-notch construction
         solutions, <br /> we have been a leading player in the construction
@@ -22,7 +22,7 @@ function AboutUsPage() {
       <h2 className="text-3xl text-center font-bold text-[#FF5318]">
         Our Journey
       </h2>
-      <p className="text-center p-2">
+      <p className="text-center p-9">
         Established by visionary entrepreneurs Mike Otieno and Vincent
         Owino,VynMyke
         <br /> Construction Company was born out of a shared dream to create
@@ -35,7 +35,7 @@ function AboutUsPage() {
       <h1 className="text-3xl text-center font-bold text-[#FF5318] p-1">
         The VynMyke Advantage
       </h1>
-      <p className="text-center p-2">
+      <p className="text-center p-9">
         At VynMyke Construction Company, we pride ourselves on being more than
         just builders.
         <br /> Our approach revolves around customer-centricity, innovation, and
@@ -46,9 +46,9 @@ function AboutUsPage() {
         <br /> we strive for excellence in every endeavor.
       </p>
       <h1 className="text-3xl text-center font-bold text-[#FF5318] p-1">
-        Our Team
+        The Team
       </h1>
-      <p className="text-center p-2">
+      <p className="text-center p-9">
         Our success story is incomplete without acknowledging the
         <br /> incredible talent that forms the backbone of our organization.
         Our team comprises <br/> some of the brightest minds in the

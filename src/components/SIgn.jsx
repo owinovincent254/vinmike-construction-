@@ -1,5 +1,11 @@
+
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { app } from "../firebase";
+import { Link } from "react-router-dom"
+
 import { Link, useNavigate } from "react-router-dom"
 import Loader from "./Loader";
+
 import google from "../assets/images/google.png"
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
@@ -11,8 +17,12 @@ import { db } from "../firebase";
 
 
 function Sign() {
+
+    const auth=getAuth(app)
+
     const navigate = useNavigate()
     const auth = getAuth()
+
     const [show, setShow] = useState(false);
     const [formData, setFormData] = useState({});
     const [error, setError] = useState({});
@@ -40,6 +50,22 @@ function Sign() {
             (errors.confirmPassword = "Please Confirm Your Password");
 
         setError(errors);
+
+        console.log(formData);
+        createUserWithEmailAndPassword(auth,formData.email,formData.Password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+
+        console.log(errors);
+
         setLoading(false)
 
         createUserWithEmailAndPassword(auth, formData.emailAddress, formData.Password)
@@ -60,6 +86,7 @@ function Sign() {
 
             });
         await addDoc(collection(db, "client"), formData);
+
 
 
 

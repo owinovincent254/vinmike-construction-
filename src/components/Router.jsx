@@ -1,6 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
+
+
+import Signup from "../pages/Signup";
+
  
+
 import Signin from "../pages/Signin";
 import Categories from "../pages/Categories";
 import Service from "../pages/Service";
@@ -19,6 +24,17 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
+
+        <Route path="/" element={<Home />} />
+        <Route path="/sign" element={<Signup />} />
+        <Route path="/login" element={<Signin />} />
+        <Route path="/category" element={<Categories />} />
+        <Route path="/service" element={<Service />} />
+
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutAs />} />
+        <Route path="/contact" element={<ContactAs />} />
+
  
         <Route path="/" element={<Home/>} />
         <Route path="/sign-up" element={<ClientSignup/>} />
@@ -33,6 +49,7 @@ function Router() {
         <Route path="/constructor" element={<ConstructorSignup/>} />
         <Route path="/constructors" element={<ConstructorLogin/>} />
         <Route path="/fundi-profile" element={<FundiProfile/>} />
+
 
 
       </Routes>
