@@ -1,3 +1,5 @@
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { app } from "../firebase";
 import { Link } from "react-router-dom"
 import google from "../assets/images/google.png"
 import { AiFillEyeInvisible } from "react-icons/ai";
@@ -5,6 +7,7 @@ import { AiFillEye } from "react-icons/ai";
 import { googleAuth } from "../auth";
 import { useState } from "react"
 function Sign() {
+    const auth=getAuth(app)
     const [show, setShow] = useState(false);
     const [formData, setFormData] = useState({});
     const [error, setError] = useState({});
@@ -29,6 +32,18 @@ function Sign() {
 
         setError(errors);
         console.log(formData);
+        createUserWithEmailAndPassword(auth,formData.email,formData.Password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+
         console.log(errors);
     }
     function handleGoogleAuth(){

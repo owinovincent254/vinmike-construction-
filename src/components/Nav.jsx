@@ -11,8 +11,8 @@ function Nav(){
               
             <Link to="/"><li className="text-orange-500">Home</li></Link>
             <Link to="/service"><li> Our Services</li></Link>
-            <Link to="/"><li>Contact Us</li></Link>
-            <Link to="/"><li>About Us</li></Link>
+            <Link to="/contact"><li>Contact Us</li></Link>
+            <Link to="/about"><li>About Us</li></Link>
             <Link to="/category"><li>Categories</li></Link>
             </ul>
             </div>
